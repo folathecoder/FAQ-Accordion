@@ -1,0 +1,189 @@
+// ===============  take in pixels, spit out rem value (just for fun)
+
+@function rem($size) {
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+}
+
+// =============== media-queries
+@mixin media-query ($size) {
+    @if $size == desktop {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media screen and (min-width: 992px) {
+            @content;
+        }
+    } 
+    @else if $size == tablet-mini {
+        @media screen and (min-width: 786px) {
+            @content;
+        }
+    } 
+    @else if $size == large-mobile {
+        @media screen and (min-width: 602px) {
+            @content;
+        }
+    } 
+    @else if $size == mobile {
+        @media screen and (min-width: 300px) {
+            @content;
+        }
+    } 
+    @else if $size == mobile-mini {
+      @media screen and (min-width: 300px) {
+          @content;
+      }
+  } 
+  }
+
+
+//================= Colors
+
+$color-text: hsl(238, 29%, 16%);
+$color-text-active: hsl(14, 88%, 65%);
+$color-divider: hsl(240, 5%, 91%);
+$color-text-primary: hsl(240, 6%, 50%);
+$color-text-secondary: hsl(237, 12%, 33%);
+$color-gradient-1: hsl(273, 75%, 66%);
+$color-gradient-2: hsl(240, 73%, 65%);
+$gradient-bg: linear-gradient(90deg, $color-gradient-1, $color-gradient-2);
+
+//================= Font
+
+$font-main: 'Kumbh Sans', sans-serif;
+
+//================= Font Weights
+
+$weight-regular: 400;
+$weight-bold: 700;
+
+//================= Base
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+body{
+    background: $gradient-bg;
+    max-width: 100%;
+    min-height: 100vh;
+    font-family: $font-main;
+    color: $color-text;
+    font-size: rem(15);
+    line-height: rem(20);
+    // display: grid;
+    // place-items: center;
+}
+
+.accordion {
+    max-width: rem(800);
+    min-height: rem(400);
+    margin: rem(20);
+    background-color: #fff;
+    border-radius: rem(20);
+    display: flex;
+    flex-direction: column;
+
+    &__image {
+        flex: 1;
+        background-color: red;
+        text-align: center;
+    }
+
+    &__content {
+        flex: 5;
+        // background-color: blue;
+        padding: rem(30);
+    }
+}
+
+
+//=========== Accordion
+
+.accordion {
+
+    &__container-wrap {
+        margin: rem(20) rem(0);
+    }
+
+    &__title {
+
+        h1 {
+            text-align: center;
+            font-size: rem(25);
+            line-height: rem(50);
+            font-weight: $weight-bold;
+        }
+    }
+
+    &__header {
+        // background-color: #fff;
+        min-height: rem(0);
+        padding: rem(5) rem(0);
+        border-bottom: rem(1) solid $color-divider;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        img {
+            width: rem(15);
+            height: auto;
+            cursor: pointer;
+            animation: accord 0.5s linear both;
+
+            @keyframes accord {
+                0% {transform: rotateX(360deg)}
+                100% {transform: rotateX(180deg)}
+                
+            }
+        }
+
+        h4 {
+            font-size: rem(15);
+            line-height: rem(20);
+            font-weight: $weight-bold;
+            color: $color-text-active;
+        }
+    }
+
+    &__body {
+        min-height: rem(0);
+
+        &-container {
+            margin-top: rem(10);
+        }
+    }
+}
+
+.active__header {
+    h4 {
+        font-weight: $weight-regular; 
+        color: $color-text;
+    }
+
+    img {
+        animation: accordActive 0.5s linear both;
+
+        @keyframes accordActive {
+            0% {transform: rotateX(180deg)}
+            100% {transform: rotateX(360deg)}
+            
+        }
+    }
+}
+
+.active__body {
+    display: none;
+}
