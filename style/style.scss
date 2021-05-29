@@ -80,7 +80,7 @@ body{
     min-height: 100vh;
     font-family: $font-main;
     color: $color-text;
-    font-size: rem(15);
+    font-size: rem(13);
     line-height: rem(20);
     // display: grid;
     // place-items: center;
@@ -138,7 +138,7 @@ body{
         cursor: pointer;
 
         img {
-            width: rem(15);
+            width: rem(13);
             height: auto;
             cursor: pointer;
             animation: accord 0.5s linear both;
@@ -151,7 +151,7 @@ body{
         }
 
         h4 {
-            font-size: rem(15);
+            font-size: rem(13);
             line-height: rem(20);
             font-weight: $weight-bold;
             color: $color-text-active;

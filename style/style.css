@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
   font-family: "Kumbh Sans", sans-serif;
   color: #1d1e35;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   line-height: 1.25rem;
 }
 
@@ -80,7 +80,7 @@ body {
 }
 
 .accordion__header img {
-  width: 0.9375rem;
+  width: 0.8125rem;
   height: auto;
   cursor: pointer;
   -webkit-animation: accord 0.5s linear both;
@@ -110,7 +110,7 @@ body {
 }
 
 .accordion__header h4 {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   line-height: 1.25rem;
   font-weight: 700;
   color: #f47c57;
