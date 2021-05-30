@@ -23,7 +23,7 @@
         }
     } 
     @else if $size == large-mobile {
-        @media screen and (min-width: 602px) {
+        @media screen and (min-width: 500px) {
             @content;
         }
     } 
@@ -84,8 +84,14 @@ body{
     color: $color-text;
     font-size: rem(13);
     line-height: rem(20);
-    // display: grid;
-    // place-items: center;
+
+    @include media-query(large-mobile) {
+        min-height: 100vh;
+    }
+    @include media-query(desktop) {
+        display: grid;
+        place-items: center;
+    }
 }
 
 .accordion {
@@ -98,15 +104,34 @@ body{
     flex-direction: column;
     box-shadow: rem(0) rem(0) rem(3) $shadow-main;
     // position: relative;
+    @include media-query(large-mobile) {
+        margin-top: rem(250);
+        margin-bottom: rem(100);
+    }
+    @include media-query(desktop) {
+        width: rem(1200);
+        flex-direction: row;
+        margin: rem(0) rem(0) rem(0) rem(0);
+        padding: rem(40);
+    }
 
 
     &__image {
         // flex: 0.5;
         min-height: rem(100);
+        max-width: 100%;
         // background-color: red;
         text-align: center;
         height: rem(10);
+        // background-repeat:repeat;
+        // background-size: cover;
         
+        @include media-query(large-mobile) {
+            min-height: rem(150);
+        }
+        @include media-query(desktop) {
+            flex: 1;
+        }
 
         & > * {
             max-width: rem(1000);
@@ -114,9 +139,6 @@ body{
             // background-color: #fff;
             text-align: center;
             // padding-right: rem(35);
-            background-image: url(images/illustration-woman-online-mobile.svg);
-            background-repeat:repeat;
-            background-size: cover;
 
         }
 
@@ -125,6 +147,10 @@ body{
             height: auto;
             text-align: center;
             transform: translateY(-55%) translateX((-5%));
+
+            @include media-query(desktop) {
+                display: none;
+            }
         }
     }
 
@@ -133,6 +159,10 @@ body{
         // background-color: blue;
         // min-height: rem(1000);
         padding: rem(30);
+
+        @include media-query(desktop) {
+            flex: 1;
+        }
     }
 }
 
@@ -152,6 +182,11 @@ body{
             font-size: rem(25);
             line-height: rem(50);
             font-weight: $weight-bold;
+
+            @include media-query(desktop) {
+                text-align: left;
+                font-size: rem(30);
+            }
         }
     }
 
