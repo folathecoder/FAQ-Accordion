@@ -8,14 +8,13 @@
 img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 body {
   background: -webkit-gradient(linear, left top, right top, from(#af67e9), to(#6565e7));
   background: linear-gradient(90deg, #af67e9, #6565e7);
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 0vh;
   font-family: "Kumbh Sans", sans-serif;
   color: #1d1e35;
   font-size: 0.8125rem;
@@ -25,8 +24,8 @@ body {
 .accordion {
   max-width: 50rem;
   min-height: 25rem;
-  margin: 1.25rem;
-  background-color: #fff;
+  margin: 9.375rem 1.25rem 1.25rem 1.25rem;
+  background-color: white;
   border-radius: 1.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,14 +34,31 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-shadow: 0rem 0rem 0.1875rem rgba(0, 0, 0, 0.308);
+          box-shadow: 0rem 0rem 0.1875rem rgba(0, 0, 0, 0.308);
 }
 
 .accordion__image {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background-color: red;
+  min-height: 6.25rem;
   text-align: center;
+  height: 0.625rem;
+}
+
+.accordion__image > * {
+  max-width: 62.5rem;
+  min-height: 100%;
+  text-align: center;
+  background-image: url(images/illustration-woman-online-mobile.svg);
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.accordion__image img {
+  width: 70%;
+  height: auto;
+  text-align: center;
+  -webkit-transform: translateY(-55%) translateX(-5%);
+          transform: translateY(-55%) translateX(-5%);
 }
 
 .accordion__content {
@@ -113,7 +129,7 @@ body {
   font-size: 0.8125rem;
   line-height: 1.25rem;
   font-weight: 700;
-  color: #f47c57;
+  color: #1d1e35;
 }
 
 .accordion__body {
