@@ -35,6 +35,10 @@ accordionContainer.addEventListener('click', e => {
 
         const clicked = e.target.closest('.accordion__header');
 
+        //* Automaticallly close opened tabs when one is opened
+        headerActive();
+        bodyActive();
+
         /////////////////////////////////////////////////
         //* Remove active class from the clicked accordion header
         clicked.classList.toggle('active__header');
@@ -56,6 +60,5 @@ body.addEventListener('click', e => {
         headerActive();
         bodyActive();
     }
-
 })
 

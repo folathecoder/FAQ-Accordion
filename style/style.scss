@@ -73,7 +73,6 @@ $weight-bold: 700;
 img {
     width: 100%;
     height: auto;
-    // display: block;
 }
 
 body{
@@ -84,6 +83,7 @@ body{
     color: $color-text;
     font-size: rem(13);
     line-height: rem(20);
+    padding: rem(20);
 
     @include media-query(large-mobile) {
         min-height: 100vh;
@@ -97,67 +97,76 @@ body{
 .accordion {
     max-width: rem(800);
     min-height: rem(400);
-    margin: rem(150) rem(20) rem(20) rem(20);
+    margin: rem(150) rem(0) rem(20) rem(0);
     background-color: $color-accordion-bg;
     border-radius: rem(20);
     display: flex;
     flex-direction: column;
-    box-shadow: rem(0) rem(0) rem(3) $shadow-main;
-    // position: relative;
+    position: relative;
+
     @include media-query(large-mobile) {
-        margin-top: rem(250);
-        margin-bottom: rem(100);
+        margin: rem(250) auto rem(100) auto;
     }
     @include media-query(desktop) {
         width: rem(1200);
         flex-direction: row;
         margin: rem(0) rem(0) rem(0) rem(0);
         padding: rem(40);
+        background-image: url(../images/illustration-woman-online-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: rem(400) auto;
+        background-position: rem(-60) 50%;
+        z-index: 100;
     }
 
 
     &__image {
-        // flex: 0.5;
         min-height: rem(100);
         max-width: 100%;
-        // background-color: red;
         text-align: center;
+        justify-content: center;
         height: rem(10);
-        // background-repeat:repeat;
-        // background-size: cover;
+
         
         @include media-query(large-mobile) {
             min-height: rem(150);
         }
         @include media-query(desktop) {
             flex: 1;
+            min-height: rem(400);
         }
 
-        & > * {
+        &--mobile {
+            position: relative;
             max-width: rem(1000);
             min-height: 100%;
-            // background-color: #fff;
             text-align: center;
-            // padding-right: rem(35);
-
+            
+            @include media-query(desktop) {
+                display: none;
+            }
         }
 
         img {
             width: 70%;
             height: auto;
             text-align: center;
-            transform: translateY(-55%) translateX((-5%));
+            transform: translateY(-55%) translateX(-5%);
+        }
+
+        &--desktop {
+            display: none;
 
             @include media-query(desktop) {
-                display: none;
+                display: initial;
+                position: absolute;
+                transform: translateY(75%) translateX(-70%);
             }
         }
     }
 
     &__content {
         flex: 5;
-        // background-color: blue;
-        // min-height: rem(1000);
         padding: rem(30);
 
         @include media-query(desktop) {
@@ -176,6 +185,7 @@ body{
     }
 
     &__title {
+        
 
         h1 {
             text-align: center;
@@ -191,13 +201,13 @@ body{
     }
 
     &__header {
-        // background-color: #fff;
         min-height: rem(0);
         padding: rem(5) rem(0);
         border-bottom: rem(1) solid $color-divider;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: 0.5s;
         cursor: pointer;
 
         img {

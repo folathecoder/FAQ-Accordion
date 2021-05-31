@@ -19,6 +19,7 @@ body {
   color: #1d1e35;
   font-size: 0.8125rem;
   line-height: 1.25rem;
+  padding: 1.25rem;
 }
 
 @media screen and (min-width: 500px) {
@@ -38,7 +39,7 @@ body {
 .accordion {
   max-width: 50rem;
   min-height: 25rem;
-  margin: 9.375rem 1.25rem 1.25rem 1.25rem;
+  margin: 9.375rem 0rem 1.25rem 0rem;
   background-color: white;
   border-radius: 1.25rem;
   display: -webkit-box;
@@ -48,14 +49,12 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 0rem 0rem 0.1875rem rgba(0, 0, 0, 0.308);
-          box-shadow: 0rem 0rem 0.1875rem rgba(0, 0, 0, 0.308);
+  position: relative;
 }
 
 @media screen and (min-width: 500px) {
   .accordion {
-    margin-top: 15.625rem;
-    margin-bottom: 6.25rem;
+    margin: 15.625rem auto 6.25rem auto;
   }
 }
 
@@ -68,6 +67,11 @@ body {
             flex-direction: row;
     margin: 0rem 0rem 0rem 0rem;
     padding: 2.5rem;
+    background-image: url(../images/illustration-woman-online-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: 25rem auto;
+    background-position: -3.75rem 50%;
+    z-index: 100;
   }
 }
 
@@ -75,6 +79,9 @@ body {
   min-height: 6.25rem;
   max-width: 100%;
   text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 0.625rem;
 }
 
@@ -89,13 +96,21 @@ body {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    min-height: 25rem;
   }
 }
 
-.accordion__image > * {
+.accordion__image--mobile {
+  position: relative;
   max-width: 62.5rem;
   min-height: 100%;
   text-align: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .accordion__image--mobile {
+    display: none;
+  }
 }
 
 .accordion__image img {
@@ -106,9 +121,16 @@ body {
           transform: translateY(-55%) translateX(-5%);
 }
 
+.accordion__image--desktop {
+  display: none;
+}
+
 @media screen and (min-width: 1200px) {
-  .accordion__image img {
-    display: none;
+  .accordion__image--desktop {
+    display: initial;
+    position: absolute;
+    -webkit-transform: translateY(75%) translateX(-70%);
+            transform: translateY(75%) translateX(-70%);
   }
 }
 
@@ -158,6 +180,8 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   cursor: pointer;
 }
 
