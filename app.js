@@ -7,7 +7,6 @@ const accordionHeader = document.querySelectorAll('.accordion__header');
 const accordionBody = document.querySelectorAll('.accordion__body-container');
 const body = document.body;
 
-
 //TODO: Initally close all accordion tabs
 
 //* Add active class to all accordion headers
@@ -33,20 +32,28 @@ accordionContainer.addEventListener('click', e => {
     //* Target only elements with "accordion__header"
     if (e.target.closest('.accordion__header')) {
 
-        const clicked = e.target.closest('.accordion__header');
+        if (!e.target.closest('.active__header')) {
+            //* Automaticallly close opened tab
+            headerActive();
+            bodyActive();
+        }
+        else {
+            const clicked = e.target.closest('.accordion__header');
 
-        //* Automaticallly close opened tabs when one is opened
-        headerActive();
-        bodyActive();
-
-        /////////////////////////////////////////////////
-        //* Remove active class from the clicked accordion header
-        clicked.classList.toggle('active__header');
-
-        //* Remove active class from the clicked accordion body
-        const contentBody = document.querySelector(`.accordion__body--${clicked.dataset.accordion}`);
-        contentBody.classList.toggle('active__body');
+            //* Automaticallly close opened tabs when one is opened
+            headerActive();
+            bodyActive();
+    
+            /////////////////////////////////////////////////
+            //* Remove active class from the clicked accordion header
+            clicked.classList.toggle('active__header');
+    
+            //* Remove active class from the clicked accordion body
+            const contentBody = document.querySelector(`.accordion__body--${clicked.dataset.accordion}`);
+            contentBody.classList.toggle('active__body');
+        }
     }
+
 })
 
 
